@@ -1,7 +1,13 @@
 FactoryGirl.define do
   factory :job do
-    title "Developer"
-    level_of_interest 90
-    city "Denver"
+    sequence :title do |i|
+      "Title#{i}"
+    end
+  sequence :level_of_interest do |i|
+      i
+    end
+  sequence :city do |i|
+    "City#{i}"
+    end
   end
 end

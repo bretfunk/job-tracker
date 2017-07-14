@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "User sees all companies" do
   scenario "a user sees all the companies" do
-    company = create(:company)
+    company = create(:company, name: "ESPN")
     company_two = create(:company, name: "Disney")
 
 
