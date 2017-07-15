@@ -10,7 +10,7 @@ FactoryGirl.define do
       end
 
       after(:create) do |category, evaluator|
-        category.jobs << create_list(:name, evaluator.job_count)
+        category.jobs << create_list(:job, evaluator.job_count)
       end
     end
   end

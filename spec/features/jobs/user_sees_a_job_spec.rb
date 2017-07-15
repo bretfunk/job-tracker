@@ -11,5 +11,6 @@ describe "User sees a specific job" do
     expect(page).to have_content(job.title)
     expect(page).to have_content(job.level_of_interest)
     expect(page).to have_content(job.city)
+    expect(page).to have_link("Create a New Category")
   end
 end

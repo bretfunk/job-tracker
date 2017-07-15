@@ -2,13 +2,14 @@ require 'rails_helper'
 
 describe "User sees all companies" do
   scenario "a user sees all the companies" do
-    company = create(:company, name: "ESPN")
-    company_two = create(:company, name: "Disney")
+    category1 = create(:category)
+    category2 = create(:category)
 
 
-    visit companies_path
+    visit categories_path
 
-    expect(page).to have_content("ESPN")
+    expect(page).to have_content(category1.name)
+    expect(page).to have_content (category2.name)
   end
 
 end

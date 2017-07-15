@@ -11,7 +11,7 @@ describe Category do
     end
   context "is valid with valid attributes" do
     it "has valid attributes" do
-    category = Category.new(name: "Sandwhich Artist")
+    category = create(:category)
 
     expect(category).to be_valid
       end
