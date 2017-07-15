@@ -3,5 +3,15 @@ FactoryGirl.define do
     sequence :name do |i|
       "Company#{i}"
     end
+
+    trait :with_jobs do
+  transient do
+    job_count 3
+  end
+
+  after(:create) do |company, evaluator|
+    company.jobs << create_list(:job, evaluator.job_count)
+      end
+    end
   end
 end

@@ -1,11 +1,31 @@
-<h3>All Companies</h3>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-3">All Companies</h1>
+  </div>
+</div>
 
-<ul>
+
+
+<div class="container">
+  <table class="table table-hover text-left">
+    <thead>
+      <tr>
+        <th>Company ID</th>
+        <th>Company Name</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
   <% @companies.each do |company| %>
-  <li class=company_<%= company.id %>>
-    <%= link_to company.name, company_path(company) %>:
-    <%= link_to "Edit", edit_company_path(company) %>
-    <%= link_to "Delete", company_path(company), method: "delete" %>
-  </li>
+  <tr>
+    <!-- <tr onclick="window.location.href = '/companies/<%= company.id %>';"> -->
+  <td><%= company.id %></td>
+    <td><%= link_to company.name, company_path(company) %></td>
+    <td><%= link_to "Edit", edit_company_path(company) %></td>
+    <td><%= link_to "Delete", company_path(company), method: "delete" %></td>
+  </tr>
   <% end %>
-</ul>
+</tbody>
+</table>
+</div>

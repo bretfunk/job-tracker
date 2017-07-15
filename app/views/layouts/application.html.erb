@@ -7,10 +7,72 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <style>
+  /*body {
+    color: salmon;
+  }*/
+  </style>
+  <div class="container">
+    <div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<ul class="nav nav-tabs">
+				<li class="active">
+					<a href="#">Home</a>
+				</li>
+				<li>
+					<a href="#">Profile</a>
+				</li>
+				<li class="disabled">
+					<a href="#">Messages</a>
+				</li>
+				<li class="dropdown pull-right">
+					 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Dropdown<strong class="caret"></strong></a>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="#">Action</a>
+						</li>
+						<li>
+							<a href="#">Another action</a>
+						</li>
+						<li>
+							<a href="#">Something else here</a>
+						</li>
+						<li class="divider">
+						</li>
+						<li>
+							<a href="#">Separated link</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+  </div class="container">
   <% flash.each do |name, msg| %>
     <%= content_tag :div, msg, class: name %>
+<% if flash[:notice] %>
+<div class="alert alert-success">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <%= flash[:notice] %>
+</div>
+<% elsif flash[:error] %>
+<div class="alert alert-success">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <%= flash[:error] %>
+</div>
+<% elsif flash[:alert] %>
+<div class="alert alert-success">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <%= flash[:alert] %>
+</div>
   <% end %>
+  <% end %>
+<div class="container text-center">
 <%= yield %>
+</div class=container">
 
 </body>
 </html>

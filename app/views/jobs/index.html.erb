@@ -1,7 +1,11 @@
-All Jobs for <strong><%= @company.name %></strong>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-3">All Jobs for <%= @company.name %></h1>
+  </div>
+</div>
 
 <% @jobs.each do |job| %>
-  <ul><%= job.title %> at <%= job.company.name %></ul>
+  <ul><h3><%= job.title %> at <%= job.company.name %></h3></ul>
   <ul><%= link_to "Profile", company_job_path(@company, job) %></ul>
 <% end %>
 <p><%= link_to "Add Job", new_company_job_path %></p>
