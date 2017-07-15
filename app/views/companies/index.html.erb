@@ -19,11 +19,13 @@
       <tbody>
   <% @companies.each do |company| %>
   <tr>
+    <div class="company_<%= company.id %>">
     <!-- <tr onclick="window.location.href = '/companies/<%= company.id %>';"> -->
   <td><%= company.id %></td>
     <td><%= link_to company.name, company_path(company) %></td>
     <td><%= link_to "Edit", edit_company_path(company) %></td>
     <td><%= link_to "Delete", company_path(company), method: "delete" %></td>
+  </div>
   </tr>
   <% end %>
 </tbody>

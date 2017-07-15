@@ -17,6 +17,7 @@ class JobsController < ApplicationController
       flash[:success] = "You created #{@job.title} at #{@company.name}"
       redirect_to company_path(@company)
     else
+      flash[:warning] = "#{@job.errors}"
       render :new
     end
   end
@@ -38,6 +39,7 @@ class JobsController < ApplicationController
       flash[:success] = "You updated #{@job.title} at #{@company.name}"
       redirect_to company_job_path(@company, @job)
     else
+      flash[:warning] = "#{@job.errors}"
       render :edit
     end
   end
@@ -64,6 +66,6 @@ class JobsController < ApplicationController
   end
 
   def job_params
-    params.require(:job).permit(:title, :description, :level_of_interest, :city)
+    params.require(:job).permit(:title, :description, :level_of_interest, :city, :category_id)
   end
 end
