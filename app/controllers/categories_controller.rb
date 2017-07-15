@@ -44,7 +44,7 @@ class CategoriesController < ApplicationController
 
     flash.notice = "category #{@category.name} Deleted!"
 
-    redirect_to catagories_path
+    redirect_to categories_path
   end
 
   private

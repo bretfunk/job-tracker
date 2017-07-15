@@ -11,7 +11,9 @@ describe "User deletes a category" do
     expect(page).to have_content(category1.name)
     expect(page).to have_content(category2.name)
 
-    click_on "Delete"
+    within(".category_#{category2.id}") do
+      click_link "Delete"
+    end
 
     visit categories_path
 
