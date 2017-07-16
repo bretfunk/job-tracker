@@ -15,4 +15,13 @@ FactoryGirl.define do
     company
     category
   end
+  trait :with_comments do
+transient do
+  comment_count 3
+end
+
+after(:create) do |job, evaluator|
+  job.comments << create_list(:comment, evaluator.comment_count)
+    end
+  end
 end
