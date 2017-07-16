@@ -14,7 +14,7 @@ class JobsController < ApplicationController
     @company = Company.find(params[:company_id])
     @job = @company.jobs.new(job_params)
     if @job.save
-      flash[:success] = "You created #{@job.title} at #{@company.name}"
+      flash[:notice] = "You created #{@job.title} at #{@company.name}"
       redirect_to company_path(@company)
     else
       flash[:warning] = "#{@job.errors}"
@@ -37,7 +37,7 @@ class JobsController < ApplicationController
     @company = Company.find(params[:company_id])
     @job = @company.jobs.find(params[:id])
      if @job.update(job_params)
-      flash[:success] = "You updated #{@job.title} at #{@company.name}"
+      flash[:notice] = "You updated #{@job.title} at #{@company.name}"
       redirect_to company_job_path(@company, @job)
     else
       flash[:warning] = "#{@job.errors}"
@@ -49,7 +49,7 @@ class JobsController < ApplicationController
     @company = Company.find(params[:company_id])
     @job = @company.jobs.find(params[:id])
     if @job.destroy
-      flash[:success] = "You deleted #{@job.title} at #{@company.name}"
+      flash[:notice] = "You deleted #{@job.title} at #{@company.name}"
       redirect_to company_path(@company)
     else
       redirect_to company_job_path(@company, @job)

@@ -20,7 +20,7 @@ class CategoriesController < ApplicationController
     @category = Category.new(category_params)
 
     if @category.save
-      flash.notice ="category '#{@category.name}' Saved!"
+      flash[:notice] ="category '#{@category.name}' Saved!"
 
       redirect_to category_path(@category)
     else
@@ -33,7 +33,7 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     @category.update(category_params)
 
-    flash.notice = "Category Updated!"
+    flash[:notice] = "Category Updated!"
 
     redirect_to category_path(@category)
   end
@@ -42,7 +42,7 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     @category.destroy
 
-    flash.notice = "category #{@category.name} Deleted!"
+    flash[:notice] = "category #{@category.name} Deleted!"
 
     redirect_to categories_path
   end

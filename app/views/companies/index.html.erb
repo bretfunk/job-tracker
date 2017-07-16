@@ -10,10 +10,10 @@
   <table class="table table-hover text-left">
     <thead>
       <tr>
-        <th>Company ID</th>
-        <th>Company Name</th>
-          <th>Edit</th>
-          <th>Delete</th>
+        <th><h4>Company ID</h4></th>
+        <th><h4>Company Name</h4></th>
+          <th><h4>Edit</h4></th>
+          <th><h4>Delete</h4></th>
         </tr>
       </thead>
       <tbody>
@@ -21,10 +21,10 @@
   <tr>
     <div class="company_<%= company.id %>">
     <!-- <tr onclick="window.location.href = '/companies/<%= company.id %>';"> -->
-  <td><%= company.id %></td>
-    <td><%= link_to company.name, company_path(company) %></td>
-    <td><button type="button" class="btn btn-primary"><%= link_to "Edit", edit_company_path(company) %></button></td>
-    <td><button type="button" class="btn btn-danger"><%= link_to "Delete", company_path(company), method: "delete" %></button></td>
+  <td><h4><%= company.id %></h4></td>
+    <td><%= link_to company.name, company_path(company), class: "h3" %></td>
+    <td><%= link_to "Edit", edit_company_path(company), class: "btn btn-primary" %></td>
+    <td><%= link_to "Delete", company_path(company), method: "delete", class: "btn btn-danger" %></td>
   </div>
   </tr>
   <% end %>

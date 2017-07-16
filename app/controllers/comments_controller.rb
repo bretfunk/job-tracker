@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
   @comment.job_id = params[:job_id]
 
   @comment.save
-
+  flash[:notice] = "Comment Added!"
 # redirect_to companies_path
   redirect_to job_path(@comment.job)
   end
