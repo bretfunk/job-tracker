@@ -23,8 +23,8 @@
     <!-- <tr onclick="window.location.href = '/companies/<%= company.id %>';"> -->
   <td><%= company.id %></td>
     <td><%= link_to company.name, company_path(company) %></td>
-    <td><%= link_to "Edit", edit_company_path(company) %></td>
-    <td><%= link_to "Delete", company_path(company), method: "delete" %></td>
+    <td><button type="button" class="btn btn-primary"><%= link_to "Edit", edit_company_path(company) %></button></td>
+    <td><button type="button" class="btn btn-danger"><%= link_to "Delete", company_path(company), method: "delete" %></button></td>
   </div>
   </tr>
   <% end %>

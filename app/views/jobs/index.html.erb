@@ -19,13 +19,13 @@
     <div class="job_<%= job.id %>">
   <td><%= job.title%></td>
     <td><%= job.company.name %></td>
-    <td><%= link_to "Profile", company_job_path(@company, job) %></td>
+    <td><button><%= link_to "Profile", company_job_path(@company, job) %></button></td>
   </div>
   </tr>
   <% end %>
 </tbody>
 </table>
-<p><%= link_to "Add Job", new_company_job_path %></p>
-<p><%= link_to "Back to All Companies", companies_path %></p>
+<button type="button" class="btn btn-primary"><%= link_to "Add Job", new_company_job_path %></button>
+<button type="button" class="btn btn-primary"><%= link_to "Back to All Companies", companies_path %></button>
 
 </div>
