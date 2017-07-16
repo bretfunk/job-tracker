@@ -5,9 +5,10 @@ describe "User can add a comment" do
     company = create(:company, :with_jobs, job_count: 2)
     job1, job2 = company.jobs
 
-    visit companies_path
+    # visit companies_path
+    # click_on company.name
 
-    click_on company.name
+    visit company_jobs_path(company)
 
     expect(page).to have_content company.jobs.first.title
     expect(page).to have_content company.jobs.last.title

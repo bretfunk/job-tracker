@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  root to: 'companies#index'
+
+  get '/dashboard'  => 'companies#dashboard'
+  get '/jobs' => 'jobs#jobs'
+
   resources :categories
 
   resources :companies do
@@ -14,5 +19,6 @@ Rails.application.routes.draw do
 
   resources :jobs, only: [:show] do
   resources :comments, shallow: true
+
   end
 end

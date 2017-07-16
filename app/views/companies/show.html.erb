@@ -4,6 +4,11 @@
   </div>
 </div>
 
+<h3>Jobs</h3>
 <% @company.jobs.each do |job| %>
   <ul><%= job.title %></ul>
 <% end %>
+
+<h3>Contacts</h3>
+<%= render partial: 'companies/contact', collection: @company.contacts %>
+<%= render partial: 'contacts/form' %>

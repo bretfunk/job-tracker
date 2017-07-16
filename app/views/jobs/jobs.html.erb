@@ -1,0 +1,9 @@
+<h1>Jobs in <%= @jobs.first.city %></h1>
+    <% @jobs.each do |job| %>
+    <%= job.title %>
+    <%= job.description %>
+    <%= job.level_of_interest %>
+    <%= job.company.name %>
+    <%= job.city %>
+    <br>
+    <% end %>
