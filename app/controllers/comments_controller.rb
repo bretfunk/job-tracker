@@ -6,8 +6,8 @@ class CommentsController < ApplicationController
 
   @comment.save
 
-redirect_to companies_path
-  # redirect_to job_path(@comment.job)
+# redirect_to companies_path
+  redirect_to job_path(@comment.job)
   end
 
 private

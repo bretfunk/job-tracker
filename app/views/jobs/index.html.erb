@@ -4,9 +4,28 @@
   </div>
 </div>
 
-<% @jobs.each do |job| %>
-  <ul><h3><%= job.title %> at <%= job.company.name %></h3></ul>
-  <ul><%= link_to "Profile", company_job_path(@company, job) %></ul>
-<% end %>
+<div class="container">
+  <table class="table table-hover text-left">
+    <thead>
+      <tr>
+        <th>Job Title</th>
+        <th>Company Name</th>
+          <th>Profile</th>
+        </tr>
+      </thead>
+      <tbody>
+  <% @jobs.each do |job| %>
+  <tr>
+    <div class="job_<%= job.id %>">
+  <td><%= job.title%></td>
+    <td><%= job.company.name %></td>
+    <td><%= link_to "Profile", company_job_path(@company, job) %></td>
+  </div>
+  </tr>
+  <% end %>
+</tbody>
+</table>
 <p><%= link_to "Add Job", new_company_job_path %></p>
 <p><%= link_to "Back to All Companies", companies_path %></p>
+
+</div>
