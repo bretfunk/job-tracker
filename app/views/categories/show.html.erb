@@ -21,11 +21,11 @@
       <tbody>
   <% @category.jobs.each do |job| %>
   <tr>
-    <td><%= job.title %></td>
-    <td><%= job.description %></td>
-    <td><%= job.level_of_interest %></td>
-    <td><%= job.company.name %></td>
-    <td><%= job.city %></td>
+    <td><h4><%= job.title %></h4></td>
+    <td><h4><%= job.description %></h4></td>
+    <td><h4><%= job.level_of_interest %></h4></td>
+    <td><h4><%= job.company.name %></h4></td>
+    <td><h4><%= job.city %></h4></td>
   </tr>
   <% end %>
 </tbody>

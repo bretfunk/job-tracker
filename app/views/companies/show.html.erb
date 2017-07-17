@@ -4,11 +4,55 @@
   </div>
 </div>
 
-<h3>Jobs</h3>
-<% @company.jobs.each do |job| %>
-  <ul><%= job.title %></ul>
-<% end %>
+<div class="container">
+  <table class="table table-hover text-left">
+    <thead>
+      <tr>
+        <th><h4>Title</h4></th>
+        <th><h4>Description</h4></th>
+          <th><h4>Interest</h4></th>
+          <th><h4>Company</h4></th>
+          <th><h4>City</h4></th>
+          <th><h4>Category</h4></th>
+          <th><h4>Profile</h4></th>
+            <th><h4>Edit</h4></th>
+            <th><h4>Delete</h4></th>
+        </tr>
+      </thead>
+      <tbody>
+  <% @company.jobs.each do |job| %>
+  <tr>
+    <div class="job_<%= job.id %>">
+  <td><h4><%= job.title %></h4></td>
+  <td><h4><%= job.description %></h4></td>
+  <td><h4><%= job.level_of_interest %></h4></td>
+  <td><h4><%= job.company.name %></h4></td>
+  <td><h4><%= job.city %></h4></td>
+  <td><h4><%= job.category.name %></h4></td>
+    <td><%= link_to "Profile", job_path(job), class: "btn btn-success" %></td>
+    <td><%= link_to "Edit", edit_company_job_path(@company, job), class: "btn btn-primary" %></td>
+    <td><%= link_to "Delete", company_job_path(@company, job), method: "delete", class: "btn btn-danger" %></td>
+  </div>
+  </tr>
+  <% end %>
+</tbody>
+</table>
+</div>
 
-<h3>Contacts</h3>
+<h2>Contacts</h2>
+<div class="container">
+  <table class="table table-hover text-left">
+    <thead>
+      <tr>
+        <th><h4>First Name</h4></th>
+        <th><h4>Last Name</h4></th>
+          <th><h4>Position</h4></th>
+          <th><h4>Email</h4></th>
+        </tr>
+      </thead>
+      <tbody>
 <%= render partial: 'companies/contact', collection: @company.contacts %>
+</tbody>
+</table>
+</div>
 <%= render partial: 'contacts/form' %>

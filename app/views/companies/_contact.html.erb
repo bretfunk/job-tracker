@@ -1,7 +1,9 @@
-<div>
-  <h4>First Name: <%= contact.fname %></h4>
-  <h4>Last Name: <%= contact.lname %></h4>
-  <h4>Position: <%= contact.position %></h4>
-  <h4>Email: <%= contact.email %></h4>
-</div>
-<br>
+
+  <tr>
+    <div class="contact_<%= contact.id %>">
+  <td><h4><%= contact.fname %></h4></td>
+  <td><h4><%= contact.lname %></h4></td>
+  <td><h4><%= contact.position %></h4></td>
+  <td><h4><%= contact.email %></h4></td>
+  </div>
+  </tr>

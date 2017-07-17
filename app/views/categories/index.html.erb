@@ -26,10 +26,10 @@
   <tr>
     <div class="category_<%= category.id %>">
     <!-- <tr onclick="window.location.href = '/categories/<%= category.id %>';"> -->
-    <td><%= category.id %></td>
-    <td><%= link_to category.name, category_path(category) %></td>
-    <td><%= link_to "Edit", edit_category_path(category) %></td>
-    <td><%= link_to "Delete", category_path(category), method: :delete %></td>
+    <td><h4><%= category.id %></td></h4>
+    <td><h4><%= link_to category.name, category_path(category) %></td></h4>
+    <td><h4><%= link_to "Edit", edit_category_path(category), class: "btn btn-primary" %></td></h4>
+    <td><h4><%= link_to "Delete", category_path(category), method: :delete, class: "btn btn-danger" %></td></h4>
   </div>
   </tr>
   <% end %>

@@ -48,7 +48,12 @@ class CompaniesController < ApplicationController
   end
 
   def dashboard
+    @level_of_interest = Job.group(:level_of_interest).count.sort.reverse
+    @companies = Company.sort_by_level_of_interest
+    @jobs = Job.all.group_by(&:city).values.flatten
+    # People.all.group_by(&:age)
   end
+
 
   private
 

@@ -1,6 +1,7 @@
-<h1>Jobs in <%= @jobs.first.city %></h1>
-    <% @jobs.each do |job| %>
+  <h1>Jobs in <%= @one_location.first.city %></h1>
+    <% @one_location.each do |job| %>
     <%= job.title %>
+    <%= job.category.name %>
     <%= job.description %>
     <%= job.level_of_interest %>
     <%= job.company.name %>

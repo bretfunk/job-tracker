@@ -3,4 +3,9 @@ class Job < ApplicationRecord
   belongs_to :company
   belongs_to :category
   has_many :comments, dependent: :destroy
+
+  def self.sort_by_city
+    self.group(:city).name
+  end
+
 end
