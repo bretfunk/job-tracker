@@ -4,7 +4,6 @@
   </div>
 </div>
 
-
 <div class="container">
   <table class="table table-hover text-left">
     <thead>
@@ -41,6 +40,7 @@
 <%= link_to "Create a New Category", new_category_path, class: "btn btn-warning" %>
 <%= link_to "Back to All Jobs", company_path(@job.company), class: "btn btn-info" %>
 </row>
+
 <h3>Comments (<%= @job.comments.size %>)</h3>
 <%= render partial: 'jobs/comment', collection: @job.comments.reverse %>
 <%= render partial: 'comments/form' %>

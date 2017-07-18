@@ -1,21 +1,87 @@
-<h1>Welcome to the Dashboard!</h1>
-<h3>Jobs by Level of Interest</h3>
-
-<% @level_of_interest.each do |k, v| %>
-<%= k %>, <%= v %>
-<% end %>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-3">Dashboard</h1>
+  </div>
+</div>
+<h2>Jobs by Level of Interest</h2>
+<div class="container">
+  <table class="table table-hover text-left">
+    <thead>
+      <tr>
+        <th><h4>Company</h4></th>
+        <th><h4>Level of Interest</h4></th>
+        </tr>
+      </thead>
+      <tbody>
+  <tr>
+    <% @level_of_interest.each do |k, v| %>
+    <div>
+  <td><h4><%= k %></h4></td>
+  <td><h4><%= v %></h4></td>
+  </div>
+  </tr>
+  <% end %>
+</tbody>
+</table>
+</div>
 <br>
-<h3>Top Companies by Average Level of Interest</h3>
-<% @companies.each do |k, v| %>
-<%= k %>, <%= v %>
-<br>
-<% end %>
 
-<h3>Sort by location</h3>
-<% @jobs.each do |job| %>
-<%= job.title %>
-<%= job.description %>
-<%= job.level_of_interest %>
-<%= job.company.name %>
-<%= job.category.name %>
-<% end %>
+<h2>Top Companies by Average Level of Interest</h2>
+
+<div class="container">
+  <table class="table table-hover text-left">
+    <thead>
+      <tr>
+        <th><h4>Company</h4></th>
+        <th><h4>Avg Level of Interest</h4></th>
+        </tr>
+      </thead>
+      <tbody>
+  <tr>
+    <% @companies.each do |k, v| %>
+    <div>
+  <td><h4><%= k %></h4></td>
+  <td><h4><%= v %></h4></td>
+  </div>
+  </tr>
+  <% end %>
+</tbody>
+</table>
+</div>
+<br>
+
+<h2>Sort by location</h2>
+<div class="container">
+  <table class="table table-hover text-left">
+    <thead>
+      <tr>
+        <th><h4>Title</h4></th>
+        <th><h4>Description</h4></th>
+          <th><h4>Interest</h4></th>
+          <th><h4>Company</h4></th>
+          <th><h4>City</h4></th>
+          <th><h4>Category</h4></th>
+          <th><h4>Profile</h4></th>
+            <th><h4>Edit</h4></th>
+            <th><h4>Delete</h4></th>
+        </tr>
+      </thead>
+      <tbody>
+  <tr>
+    <% @jobs.each do |job| %>
+    <div class="job_<%= job.id %>">
+  <td><h4><%= job.title %></h4></td>
+  <td><h4><%= job.description %></h4></td>
+  <td><h4><%= job.level_of_interest %></h4></td>
+  <td><h4><%= job.company.name %></h4></td>
+  <td><h4><%= job.city %></h4></td>
+  <td><h4><%= job.category.name %></h4></td>
+    <td><%= link_to "Profile", job_path(job), class: "btn btn-success" %></td>
+    <td><%= link_to "Edit", edit_company_job_path(job.company, job), class: "btn btn-primary" %></td>
+    <td><%= link_to "Delete", company_job_path(job.company, job), method: "delete", class: "btn btn-danger" %></td>
+  </div>
+  </tr>
+  <% end %>
+</tbody>
+</table>
+</div>
